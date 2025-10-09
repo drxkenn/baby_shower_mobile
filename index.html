@@ -280,23 +280,33 @@ document.addEventListener("DOMContentLoaded", () => {
 </script>
 
   <!-- 🌸 AUDIO DEL BABY SHOWER -->
-  <audio id="baby-audio" src="assets/Te_espere-Emma.m4a" loop></audio>
+  <audio id="baby-audio" src="assets/Te_espere-Emma.m4a" autoplay loop></audio>
+
+  <!-- Botón flotante solo con ícono -->
+  <button id="toggle-audio" class="fixed bottom-4 right-4 bg-pink-600 text-white p-3 rounded-full shadow-lg hover:bg-pink-500 transition-colors text-2xl">
+    🔊
+  </button>
 
   <script>
     const audio = document.getElementById("baby-audio");
+    const btn = document.getElementById("toggle-audio");
 
-    // Intentar reproducir automáticamente (puede fallar en algunos navegadores)
+    // Intentar reproducir automáticamente al cargar
     window.addEventListener("load", () => {
       audio.play().catch(() => {
-        // Si falla, esperar a la primera interacción del usuario
-        const playAudio = () => {
-          audio.play();
-          document.removeEventListener("click", playAudio);
-          document.removeEventListener("touchstart", playAudio);
-        };
-        document.addEventListener("click", playAudio);
-        document.addEventListener("touchstart", playAudio);
+        console.log("El navegador bloqueó la reproducción automática.");
       });
+    });
+
+    // Cambiar solo el ícono al pausar/reproducir
+    btn.addEventListener("click", () => {
+      if (audio.paused) {
+        audio.play();
+        btn.textContent = "🔊"; // Ícono para "play"
+      } else {
+        audio.pause();
+        btn.textContent = "🔇"; // Ícono para "mute"
+      }
     });
   </script>
 
