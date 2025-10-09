@@ -282,14 +282,15 @@ document.addEventListener("DOMContentLoaded", () => {
   <!-- 🌸 AUDIO DEL BABY SHOWER -->
   <audio id="baby-audio" src="assets/Te_espere-Emma.m4a" autoplay loop></audio>
 
-  <!-- Botón flotante solo con ícono -->
-  <button id="toggle-audio" class="fixed bottom-4 right-4 bg-pink-600 text-white p-3 rounded-full shadow-lg hover:bg-pink-500 transition-colors text-2xl">
-    🔊
+  <!-- Botón flotante solo con ícono (imagen) -->
+  <button id="toggle-audio" class="fixed bottom-4 right-4 bg-pink-600 p-3 rounded-full shadow-lg hover:bg-pink-500 transition-colors">
+    <img id="audio-icon" src="assets/play.png" alt="Play" class="w-6 h-6">
   </button>
 
   <script>
     const audio = document.getElementById("baby-audio");
     const btn = document.getElementById("toggle-audio");
+    const icon = document.getElementById("audio-icon");
 
     // Intentar reproducir automáticamente al cargar
     window.addEventListener("load", () => {
@@ -302,10 +303,10 @@ document.addEventListener("DOMContentLoaded", () => {
     btn.addEventListener("click", () => {
       if (audio.paused) {
         audio.play();
-        btn.textContent = "🔊"; // Ícono para "play"
+        icon.src = "assets/pause.png";   // Ícono para reproducir
       } else {
         audio.pause();
-        btn.textContent = "🔇"; // Ícono para "mute"
+        icon.src = "assets/play.png";  // Ícono para pausar
       }
     });
   </script>
