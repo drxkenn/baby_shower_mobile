@@ -44,7 +44,7 @@
           },
           backgroundImage: {
             "baby-shower": "linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.5)), url('/assets/fondobbs4.jpg')",
-            "bg-baby-shower": "url('./assets/fondobbs5.png')",
+            "bg-baby-shower": "url('/assets/fondobbs5.png')",
           },
         },
       },
@@ -58,7 +58,7 @@
   </style>
 </head>
 
-<body class="bg-[url('./assets/fondob1.jpg')] bg-cover bg-fixed bg-center bg-no-repeat">
+<body class="bg-[url('/assets/fondob1.jpg')] bg-cover bg-fixed bg-center bg-no-repeat">
   <div class="relative flex min-h-screen flex-col overflow-x-hidden">
     
     <!-- 🌸 HEADER -->
@@ -73,7 +73,7 @@
     <!-- 🌸 HERO -->
     <main class="flex flex-col flex-1">
       <section id="Inicio" class="flex flex-col items-center justify-center text-center px-6 py-24 bg-white/70 rounded-3xl mx-4 mt-6 shadow-lg backdrop-blur-md">
-      <img src="./assets/fondobb1.jpg" alt="Osito" class="w-40 mb-6 animate-bounce" />
+      <img src="/assets/fondobb1.jpg" alt="Osito" class="w-40 mb-6 animate-bounce" />
       <h2 class="text-3xl font-satisfy text-pink-600">¡Estamos esperando a Emma Gissel! 💕</h2>
       <p class="mt-4 font-quick text-neutral-700 text-base max-w-sm">
         Una historia llena de amor, esperanza y ternura.
@@ -144,7 +144,7 @@
   <!-- Ícono SVG -->
   <div class="flex justify-center mb-6">
     <!-- Aquí colocas tu SVG -->
-    <img src="assets/calendario.png" alt="Icono Baby Shower" class="w-20 h-20 sm:w-24 sm:h-24 animate-bounce-slow text-pink-500">
+    <img src="/assets/calendario.png" alt="Icono Baby Shower" class="w-20 h-20 sm:w-24 sm:h-24 animate-bounce-slow text-pink-500">
   </div>
 
   <!-- Texto del evento -->
@@ -190,7 +190,7 @@
     
     <!-- 📍 Ubicación -->
     <article class="flex flex-col items-center gap-4 rounded-2xl border border-pink-200 bg-white p-6 shadow-md">
-      <img src="assets/ubicacion.png" alt="Icono ubicación" class="w-14 h-14 mx-auto animate-bounce-slow">
+      <img src="/assets/ubicacion.png" alt="Icono ubicación" class="w-14 h-14 mx-auto animate-bounce-slow">
       <h2 class="text-3xl font-great text-pink-700">Ubicación</h2>
       <p class="text-sm font-quick text-neutral-600 text-center">
         Conoce el lugar donde celebraremos este día tan especial 💖
@@ -203,7 +203,7 @@
 
     <!-- 🎁 Regalos -->
     <article class="flex flex-col items-center gap-4 rounded-2xl border border-pink-200 bg-white p-6 shadow-md">
-      <img src="assets/regalo.png" alt="Icono regalo" class="w-14 h-14 mx-auto animate-bounce-slow">
+      <img src="/assets/regalo.png" alt="Icono regalo" class="w-14 h-14 mx-auto animate-bounce-slow">
       <h2 class="text-3xl font-great text-pink-700">Regalos personalizados</h2>
       <p class="text-sm font-quick text-neutral-600 text-center">
         Encuentra el detalle perfecto para mamá y bebé 🎀
@@ -216,7 +216,7 @@
 
     <!-- 💌 Confirmar asistencia -->
     <article class="flex flex-col items-center gap-4 rounded-2xl border border-pink-200 bg-white p-6 shadow-md">
-      <img src="assets/asistencia.png" alt="Icono confirmar" class="w-14 h-14 mx-auto animate-bounce-slow">
+      <img src="/assets/asistencia.png" alt="Icono confirmar" class="w-14 h-14 mx-auto animate-bounce-slow">
       <h2 class="text-3xl font-great text-pink-700">Confirma tu asistencia</h2>
       <p class="text-sm font-quick text-neutral-600 text-center">
         ¡Tu presencia hará este día aún más especial!
@@ -288,11 +288,11 @@ document.addEventListener("DOMContentLoaded", () => {
   <!-- Tu contenido actual -->
 
   <!-- 🌸 AUDIO DEL BABY SHOWER -->
-  <audio id="baby-audio" src="assets/Te_espere-Emma.m4a" autoplay loop></audio>
+  <audio id="baby-audio" src="/assets/Te_espere-Emma.m4a" autoplay loop></audio>
 
   <!-- Botón flotante en esquina superior derecha, más grande -->
   <button id="toggle-audio" class="fixed top-4 right-4 bg-pink-600 p-4 rounded-full shadow-lg hover:bg-pink-500 transition-colors">
-    <img id="audio-icon" src="assets/play.png" alt="Play" class="w-8 h-8">
+    <img id="audio-icon" src="/assets/play.png" alt="Play" class="w-8 h-8">
   </button>
 
   <script>
@@ -311,10 +311,10 @@ document.addEventListener("DOMContentLoaded", () => {
     btn.addEventListener("click", () => {
       if (audio.paused) {
         audio.play();
-        icon.src = "assets/pause.png";   // Ícono para reproducir
+        icon.src = "/assets/pause.png";   // Ícono para reproducir
       } else {
         audio.pause();
-        icon.src = "assets/play.png";  // Ícono para pausar
+        icon.src = "/assets/play.png";  // Ícono para pausar
       }
     });
   </script>
