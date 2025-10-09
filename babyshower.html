@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BabyShower de Emma</title>
+
+  <!-- 🩷 Fuentes -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+ <link href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap" rel="stylesheet">
+ <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Satisfy&display=swap" rel="stylesheet">
+ <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+ <link rel="stylesheet" href="css/styles.css">
+
+
+  <!-- 🩵 TailwindCSS -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            primary: "#fbb6d9",
+            "background-light": "#f8f5f7",
+            "background-dark": "#221019",
+          },
+          fontFamily: {
+            display: ["Plus Jakarta Sans", "sans-serif"],
+            satisfy: ["Satisfy", "cursive"],
+            great: ["Great Vibes", "cursive"],
+            quick: ["Quicksand", "sans-serif"],
+          },
+          borderRadius: {
+            DEFAULT: "1rem",
+            lg: "2rem",
+            xl: "3rem",
+            full: "9999px",
+          },
+          backgroundImage: {
+            "baby-shower": "linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.5)), url('/assets/fondobbs4.jpg')",
+            "bg-baby-shower": "url('./assets/fondobbs5.png')",
+          },
+        },
+      },
+    };
+  </script>
+
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
+</head>
+
+<body class="bg-[url('./assets/fondob1.jpg')] bg-cover bg-fixed bg-center bg-no-repeat">
+  <div class="relative flex min-h-screen flex-col overflow-x-hidden">
+    
+    <!-- 🌸 HEADER -->
+    <header class="flex items-center justify-between border-b border-primary/20 px-6 py-4 md:px-10">
+      <div class="flex items-center gap-3 text-neutral-800 dark:text-white">
+       <img src="assets/bebita.png" alt="bebe" class="w-14 h-14 mx-auto">
+        <h1 class="text-xl font-satisfy">Emma’s Special Day 🎀</h1>
+      </div>
+    </header>
+
+
+    <!-- 🌸 HERO -->
+    <main class="flex flex-col flex-1">
+      <section id="Inicio" class="flex flex-col items-center justify-center text-center px-6 py-24 bg-white/70 rounded-3xl mx-4 mt-6 shadow-lg backdrop-blur-md">
+      <img src="./assets/fondobb1.jpg" alt="Osito" class="w-40 mb-6 animate-bounce" />
+      <h2 class="text-3xl font-satisfy text-pink-600">¡Estamos esperando a Emma Gissel! 💕</h2>
+      <p class="mt-4 font-quick text-neutral-700 text-base max-w-sm">
+        Una historia llena de amor, esperanza y ternura.
+      </p>
+      </section>
+
+
+      <!-- 💌 SECCIÓN INFO -->
+        <section id="mensaje" class="flex flex-col items-center justify-center text-center py-12 px-6 animate-fadeIn">
+       <h2 class="text-base font-quick sm:text-lg text-neutral-700 mb-6">
+        ¡Deseo que compartas con mis papis este día! 💖
+        </h2>
+
+        <!-- Línea decorativa -->
+        <div class="w-24 h-[2px] bg-red-700 rounded-full mb-6"></div>
+
+        <!-- Nombres -->
+        <div class="text-4xl sm:text-5xl font-great text-pink-700 space-y-2">
+        <p>Fiorella Juárez</p>
+        <p>Rafael Ramos</p>
+         </div>
+        </section>
+
+          <style>
+          @keyframes fadeIn {
+           from { opacity: 0; transform: translateY(10px); }
+           to { opacity: 1; transform: translateY(0); }
+           }
+           .animate-fadeIn {
+             animation: fadeIn 1.2s ease-out;
+             }
+           </style>
+
+<!-- ⏰ CONTADOR -->
+<section id="Horario" class="bg-primary/5 dark:bg-primary/10 py-12 sm:py-20 px-4 text-center">
+  <h3 class="text-2xl sm:text-4xl font-satisfy text-pink-600 dark:text-white">¡Solo Faltan!</h3>
+
+  <div id="countdown" class="mt-8 flex flex-nowrap justify-center gap-2 sm:gap-4 text-center">
+    <!-- Días -->
+    <div class="flex flex-col items-center bg-white/70 dark:bg-background-dark border border-pink-200 rounded-lg px-3 py-2 sm:px-4 sm:py-3 shadow-md min-w-[60px]">
+      <span id="days" class="count text-2xl sm:text-3xl font-bold text-pink-600">00</span>
+      <span class="label text-xs sm:text-sm text-neutral-700 dark:text-white">Días</span>
+    </div>
+    <!-- Horas -->
+    <div class="flex flex-col items-center bg-white/70 dark:bg-background-dark border border-pink-200 rounded-lg px-3 py-2 sm:px-4 sm:py-3 shadow-md min-w-[60px]">
+      <span id="hours" class="count text-2xl sm:text-3xl font-bold text-pink-600">00</span>
+      <span class="label text-xs sm:text-sm text-neutral-700 dark:text-white">Horas</span>
+    </div>
+    <!-- Minutos -->
+    <div class="flex flex-col items-center bg-white/70 dark:bg-background-dark border border-pink-200 rounded-lg px-3 py-2 sm:px-4 sm:py-3 shadow-md min-w-[60px]">
+      <span id="minutes" class="count text-2xl sm:text-3xl font-bold text-pink-600">00</span>
+      <span class="label text-xs sm:text-sm text-neutral-700 dark:text-white">Minutos</span>
+    </div>
+    <!-- Segundos -->
+    <div class="flex flex-col items-center bg-white/70 dark:bg-background-dark border border-pink-200 rounded-lg px-3 py-2 sm:px-4 sm:py-3 shadow-md min-w-[60px]">
+      <span id="seconds" class="count text-2xl sm:text-3xl font-bold text-pink-600">00</span>
+      <span class="label text-xs sm:text-sm text-neutral-700 dark:text-white">Segundos</span>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+      <!-- 🎀 FECHA DEL EVENTO -->
+<section class="py-16 sm:py-24 text-center">
+  <!-- Ícono SVG -->
+  <div class="flex justify-center mb-6">
+    <!-- Aquí colocas tu SVG -->
+    <img src="assets/calendario.png" alt="Icono Baby Shower" class="w-20 h-20 sm:w-24 sm:h-24 animate-bounce-slow text-pink-500">
+  </div>
+
+  <!-- Texto del evento -->
+  <h2 class="text-3xl sm:text-4xl font-satisfy text-pink-600 dark:text-white">
+    El baby shower será el:
+  </h2>
+  
+     
+
+  <p class="mt-3 text-lg sm:text-xl text-gray-700 dark:text-gray-300 font-quick">
+    Sábado 22 de Noviembre del 2025
+  </p>
+</section>
+
+<style>
+@keyframes bounce-slow {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+.animate-bounce-slow {
+  animation: bounce-slow 3s ease-in-out infinite;
+}
+</style>
+
+<!-- 💕 SECCIÓN INFORMATIVA -->
+<section class="py-16 sm:py-24 px-4 text-center">
+  <div class="max-w-3xl mx-auto">
+    <h3 class="text-2xl sm:text-4xl font-satisfy text-pink-700 dark:text-white">
+      Te esperamos para compartir este momento tan especial
+    </h3>
+    <p class="mt-4 text-neutral-600 font-quicksand dark:text-neutral-400 text-base sm:text-lg">
+      La vida nos regala momentos que marcan el alma para siempre... y este es uno de ellos.
+      <br>La llegada de <b>Emma</b> ya llena nuestro hogar de amor y alegría 💕
+    </p>
+  </div>
+
+  <!-- 🩷 Tarjetas -->
+  <div class="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+    
+    <!-- 📍 Ubicación -->
+    <article class="flex flex-col items-center gap-4 rounded-2xl border border-pink-200 bg-white p-6 shadow-md">
+      <img src="assets/ubicacion.png" alt="Icono ubicación" class="w-14 h-14 mx-auto animate-bounce-slow">
+      <h2 class="text-3xl font-great text-pink-700">Ubicación</h2>
+      <p class="text-sm font-quick text-neutral-600 text-center">
+        Conoce el lugar donde celebraremos este día tan especial 💖
+      </p>
+      <a href="https://maps.app.goo.gl/UABDG9DcByTJLB7S8"
+         class="mt-3 flex h-10 items-center justify-center rounded-full bg-pink-600 px-5 text-sm font-bold text-white transition-transform hover:scale-105">
+        Ver ubicación
+      </a>
+    </article>
+
+    <!-- 🎁 Regalos -->
+    <article class="flex flex-col items-center gap-4 rounded-2xl border border-pink-200 bg-white p-6 shadow-md">
+      <img src="assets/regalo.png" alt="Icono regalo" class="w-14 h-14 mx-auto animate-bounce-slow">
+      <h2 class="text-3xl font-great text-pink-700">Regalos personalizados</h2>
+      <p class="text-sm font-quick text-neutral-600 text-center">
+        Encuentra el detalle perfecto para mamá y bebé 🎀
+      </p>
+      <a href="https://www.thingstogetme.com/1826327ac7737"
+         class="mt-3 flex h-10 items-center justify-center rounded-full bg-pink-600 px-5 text-sm font-bold text-white transition-transform hover:scale-105">
+        Ver lista
+      </a>
+    </article>
+
+    <!-- 💌 Confirmar asistencia -->
+    <article class="flex flex-col items-center gap-4 rounded-2xl border border-pink-200 bg-white p-6 shadow-md">
+      <img src="assets/asistencia.png" alt="Icono confirmar" class="w-14 h-14 mx-auto animate-bounce-slow">
+      <h2 class="text-3xl font-great text-pink-700">Confirma tu asistencia</h2>
+      <p class="text-sm font-quick text-neutral-600 text-center">
+        ¡Tu presencia hará este día aún más especial!
+      </p>
+      <a href="https://forms.gle/mkLhV7WMYZTSwHdW8"
+         class="mt-3 flex h-10 items-center justify-center rounded-full bg-pink-600 px-5 text-sm font-bold text-white transition-transform hover:scale-105">
+        Confirmar
+      </a>
+    </article>
+  </div>
+</section>
+
+<!-- 🌼 Animación -->
+<style>
+@keyframes bounce-slow {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+.animate-bounce-slow {
+  animation: bounce-slow 3s ease-in-out infinite;
+}
+</style>
+
+
+
+
+    </main>
+
+    <!-- 🌼 FOOTER -->
+    <footer class="bg-background-light dark:bg-background-dark border-t border-primary/20 text-center py-6 text-sm text-neutral-500 dark:text-neutral-400">
+      © 2025 Jerksdev. Todos los derechos reservados 
+    </footer>
+  </div>
+
+  <!-- 🌙 Scripts -->
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const eventDate = new Date("November 22, 2025 19:00:00").getTime();
+
+  const countdown = setInterval(() => {
+    const now = new Date().getTime();
+    const distance = eventDate - now;
+
+    if (distance < 0) {
+      clearInterval(countdown);
+      document.getElementById("countdown").innerHTML =
+        "<p class='text-2xl font-bold text-green-600'>¡El evento ha comenzado! 🎉</p>";
+      return;
+    }
+
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    document.getElementById("days").textContent = days.toString().padStart(2, "0");
+    document.getElementById("hours").textContent = hours.toString().padStart(2, "0");
+    document.getElementById("minutes").textContent = minutes.toString().padStart(2, "0");
+    document.getElementById("seconds").textContent = seconds.toString().padStart(2, "0");
+  }, 1000);
+});
+</script>
+
+<body>
+  <!-- Tu contenido actual -->
+
+  <!-- 🌸 AUDIO DEL BABY SHOWER -->
+  <audio id="baby-audio" src="assets/Te_espere-Emma.m4a" autoplay loop></audio>
+
+  <!-- Botón flotante en esquina superior derecha, más grande -->
+  <button id="toggle-audio" class="fixed top-4 right-4 bg-pink-600 p-4 rounded-full shadow-lg hover:bg-pink-500 transition-colors">
+    <img id="audio-icon" src="assets/play.png" alt="Play" class="w-8 h-8">
+  </button>
+
+  <script>
+    const audio = document.getElementById("baby-audio");
+    const btn = document.getElementById("toggle-audio");
+    const icon = document.getElementById("audio-icon");
+
+    // Intentar reproducir automáticamente al cargar
+    window.addEventListener("load", () => {
+      audio.play().catch(() => {
+        console.log("El navegador bloqueó la reproducción automática.");
+      });
+    });
+
+    // Cambiar solo el ícono al pausar/reproducir
+    btn.addEventListener("click", () => {
+      if (audio.paused) {
+        audio.play();
+        icon.src = "assets/pause.png";   // Ícono para reproducir
+      } else {
+        audio.pause();
+        icon.src = "assets/play.png";  // Ícono para pausar
+      }
+    });
+  </script>
+</body>
+
+
+</body>
+</html>
