@@ -10,6 +10,7 @@
  <link href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap" rel="stylesheet">
  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Satisfy&display=swap" rel="stylesheet">
  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+ <link rel="stylesheet" href="css/styles.css">
 
 
   <!-- 🩵 TailwindCSS -->
@@ -59,7 +60,7 @@
     <header class="flex items-center justify-between border-b border-primary/20 px-6 py-4 md:px-10">
       <div class="flex items-center gap-3 text-neutral-800 dark:text-white">
        <img src="assets/bebita.png" alt="bebe" class="w-14 h-14 mx-auto">
-        <h1 class="text-xl font-satisfy">Baby Shower</h1>
+        <h1 class="text-xl font-satisfy">Emma’s Special Day 🎀</h1>
       </div>
     </header>
 
@@ -101,20 +102,37 @@
              }
            </style>
 
-      <!-- ⏰ CONTADOR -->
-      <section id="Horario" class="bg-primary/5 dark:bg-primary/10 py-12 sm:py-20 px-4 text-center">
-        <h3 class="text-2xl sm:text-4xl font-satisfy text-pink-600 dark:text-white">¡Solo Faltan!</h3>
+<!-- ⏰ CONTADOR -->
+<section id="Horario" class="bg-primary/5 dark:bg-primary/10 py-12 sm:py-20 px-4 text-center">
+  <h3 class="text-2xl sm:text-4xl font-satisfy text-pink-600 dark:text-white">¡Solo Faltan!</h3>
 
-        <div id="countdown" class="mt-8 flex flex-wrap justify-center gap-3 sm:gap-5 text-center">
-          <!-- Cajas del contador -->
-          <template id="countdown-template">
-            <div>
-              <span class="block text-3xl sm:text-4xl font-bold text-red-700 bg-pink-100 border-2 border-pink-400 rounded-lg px-3 py-2 shadow-md">00</span>
-              <span class="mt-2 block text-sm sm:text-base text-neutral-600 dark:text-neutral-400 label"></span>
-            </div>
-          </template>
-        </div>
-      </section>
+  <div id="countdown" class="mt-8 flex flex-nowrap justify-center gap-2 sm:gap-4 text-center">
+    <!-- Días -->
+    <div class="flex flex-col items-center bg-white/70 dark:bg-background-dark border border-pink-200 rounded-lg px-3 py-2 sm:px-4 sm:py-3 shadow-md min-w-[60px]">
+      <span id="days" class="count text-2xl sm:text-3xl font-bold text-pink-600">00</span>
+      <span class="label text-xs sm:text-sm text-neutral-700 dark:text-white">Días</span>
+    </div>
+    <!-- Horas -->
+    <div class="flex flex-col items-center bg-white/70 dark:bg-background-dark border border-pink-200 rounded-lg px-3 py-2 sm:px-4 sm:py-3 shadow-md min-w-[60px]">
+      <span id="hours" class="count text-2xl sm:text-3xl font-bold text-pink-600">00</span>
+      <span class="label text-xs sm:text-sm text-neutral-700 dark:text-white">Horas</span>
+    </div>
+    <!-- Minutos -->
+    <div class="flex flex-col items-center bg-white/70 dark:bg-background-dark border border-pink-200 rounded-lg px-3 py-2 sm:px-4 sm:py-3 shadow-md min-w-[60px]">
+      <span id="minutes" class="count text-2xl sm:text-3xl font-bold text-pink-600">00</span>
+      <span class="label text-xs sm:text-sm text-neutral-700 dark:text-white">Minutos</span>
+    </div>
+    <!-- Segundos -->
+    <div class="flex flex-col items-center bg-white/70 dark:bg-background-dark border border-pink-200 rounded-lg px-3 py-2 sm:px-4 sm:py-3 shadow-md min-w-[60px]">
+      <span id="seconds" class="count text-2xl sm:text-3xl font-bold text-pink-600">00</span>
+      <span class="label text-xs sm:text-sm text-neutral-700 dark:text-white">Segundos</span>
+    </div>
+  </div>
+</section>
+
+
+
+
 
       <!-- 🎀 FECHA DEL EVENTO -->
 <section class="py-16 sm:py-24 text-center">
@@ -128,6 +146,9 @@
   <h2 class="text-3xl sm:text-4xl font-satisfy text-pink-600 dark:text-white">
     El baby shower será el:
   </h2>
+  
+     
+
   <p class="mt-3 text-lg sm:text-xl text-gray-700 dark:text-gray-300 font-quick">
     Sábado 22 de Noviembre del 2025
   </p>
@@ -230,47 +251,54 @@
   </div>
 
   <!-- 🌙 Scripts -->
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const eventDate = new Date("November 22, 2025 19:00:00").getTime();
+
+  const countdown = setInterval(() => {
+    const now = new Date().getTime();
+    const distance = eventDate - now;
+
+    if (distance < 0) {
+      clearInterval(countdown);
+      document.getElementById("countdown").innerHTML =
+        "<p class='text-2xl font-bold text-green-600'>¡El evento ha comenzado! 🎉</p>";
+      return;
+    }
+
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    document.getElementById("days").textContent = days.toString().padStart(2, "0");
+    document.getElementById("hours").textContent = hours.toString().padStart(2, "0");
+    document.getElementById("minutes").textContent = minutes.toString().padStart(2, "0");
+    document.getElementById("seconds").textContent = seconds.toString().padStart(2, "0");
+  }, 1000);
+});
+</script>
+
+  <!-- 🌸 AUDIO DEL BABY SHOWER -->
+  <audio id="baby-audio" src="assets/Te_espere-Emma.m4a" loop></audio>
+
   <script>
-    // Menú móvil
-    document.getElementById("menu-btn").addEventListener("click", () => {
-      document.getElementById("mobile-menu").classList.toggle("hidden");
+    const audio = document.getElementById("baby-audio");
+
+    // Intentar reproducir automáticamente (puede fallar en algunos navegadores)
+    window.addEventListener("load", () => {
+      audio.play().catch(() => {
+        // Si falla, esperar a la primera interacción del usuario
+        const playAudio = () => {
+          audio.play();
+          document.removeEventListener("click", playAudio);
+          document.removeEventListener("touchstart", playAudio);
+        };
+        document.addEventListener("click", playAudio);
+        document.addEventListener("touchstart", playAudio);
+      });
     });
-
-    // Contador regresivo
-    const eventDate = new Date("November 22, 2025 19:00:00").getTime();
-    const countdownContainer = document.getElementById("countdown");
-    const template = document.getElementById("countdown-template");
-
-    const labels = ["Días", "Horas", "Minutos", "Segundos"];
-    const ids = ["days", "hours", "minutes", "seconds"];
-
-    labels.forEach((label, i) => {
-      const node = template.content.cloneNode(true);
-      node.querySelector("span").id = ids[i];
-      node.querySelector(".label").textContent = label;
-      countdownContainer.appendChild(node);
-    });
-
-    const countdown = setInterval(() => {
-      const now = new Date().getTime();
-      const distance = eventDate - now;
-
-      if (distance < 0) {
-        clearInterval(countdown);
-        countdownContainer.innerHTML = "<p class='text-2xl font-bold text-green-600'>¡El evento ha comenzado! 🎉</p>";
-        return;
-      }
-
-      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-      document.getElementById("days").textContent = days;
-      document.getElementById("hours").textContent = hours;
-      document.getElementById("minutes").textContent = minutes;
-      document.getElementById("seconds").textContent = seconds;
-    }, 1000);
   </script>
+
 </body>
 </html>
